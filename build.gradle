@@ -1,0 +1,11 @@
+buildDir = './target'
+
+apply plugin: 'java'
+
+repositories {
+    maven { url "http://nexus.bybn.de/content/groups/public" }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

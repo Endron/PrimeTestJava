@@ -11,7 +11,7 @@
 	<property name="outputDir" value="${basedir}/target" />
 	<property name="outputDir.classes" value="${outputDir}/classes" />
 	<property name="outputDir.test-classes" value="${outputDir}/test-classes" />
-	<property name="outputDir.testResults" value="${outputDir}/testResult" />
+	<property name="outputDir.testResults" value="${outputDir}/test-result" />
 
 	<path id="test.compile.path">
 		<fileset dir="${inputDir.lib.test}">
