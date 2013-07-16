@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ContinuousIntegrationBeispiel" default="package">
+	<property name="java.source" value="1.7" />
+
+	<property name="inputDir.src" value="${basedir}/src/main/java" />
+	<property name="inputDir.test" value="${basedir}/src/test/java" />
+	<property name="inputDir.lib" value="${basedir}/lib" />
+	<property name="inputDir.lib.test" value="${inputDir.lib}/test" />
+
+	<property name="outputDir" value="${basedir}/target" />
+	<property name="outputDir.classes" value="${outputDir}/classes" />
+	<property name="outputDir.test-classes" value="${outputDir}/test-classes" />
+	<property name="outputDir.testResults" value="${outputDir}/testResult" />
+
+	<path id="test.compile.path">
+		<fileset dir="${inputDir.lib.test}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="${outputDir.classes}" />
+	</path>
+
+	<path id="test.exec.path">
+		<path refid="test.compile.path" />
+		<pathelement location="${outputDir.test-classes}" />
+	</path>
+
+	<target name="clean">
+		<delete dir="${outputDir}" />
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="${outputDir.classes}" />
+		<javac srcdir="${inputDir.src}" destdir="${outputDir.classes}" encoding="UTF-8" source="${java.source}" target="${java.source}" debug="on" includeantruntime="false">
+			<include name="**/*.java" />
+		</javac>
+	</target>
+
+	<target name="compile-test" depends="compile">
+		<mkdir dir="${outputDir.test-classes}" />
+		<javac srcdir="${inputDir.test}" destdir="${outputDir.test-classes}" classpathref="test.compile.path" encoding="UTF-8" source="${java.source}" target="${java.source}" 
+				debug="on" includeantruntime="false">
+			<include name="**/*.java" />
+		</javac>
+	</target>
+
+	<target name="test" depends="compile-test">
+		<mkdir dir="${outputDir.testResults}" />
+		<junit showoutput="true" fork="true" failureproperty="test.failed">
+			<formatter type="xml" />
+			<batchtest todir="${outputDir.testResults}">
+				<fileset dir="${outputDir.test-classes}" />
+			</batchtest>
+			<classpath refid="test.exec.path" />
+		</junit>
+		<fail if="test.failed" />
+	</target>
+
+	<target name="package" depends="test">
+		<jar destfile="${outputDir}/ContinuousIntegrationBeispiel.jar" encoding="UTF-8">
+			<fileset dir="${outputDir.classes}" />
+		</jar>
+	</target>
+</project>
