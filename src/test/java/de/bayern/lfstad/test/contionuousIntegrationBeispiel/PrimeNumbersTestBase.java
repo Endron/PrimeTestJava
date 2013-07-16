@@ -7,15 +7,22 @@ import java.util.Arrays;
 import org.junit.Test;
 
 /**
- * Testcases für die Zerlegung einer Zahl in Prim-Faktoren.
+ * Basisklasse mit der die Primfaktor-Zerlegung für verschiedene Implementierungen von {@link PrimeNumbers} zu testen.
  */
 @SuppressWarnings("javadoc")
-public class PrimeNumbersTest {
+public abstract class PrimeNumbersTestBase {
 
     /**
      * Unit under test.
      */
-    private PrimeNumbers primeNumbers = new PrimeNumbers();
+    private PrimeNumbers primeNumbers = getUnitUnderTest();
+
+    /**
+     * Stellt eine konkrete Implementierung der Unit unter Test bereit.
+     * 
+     * @return die konkrete Implementierung.
+     */
+    public abstract PrimeNumbers getUnitUnderTest();
 
     @Test(expected = RuntimeException.class)
     public void split0() {
