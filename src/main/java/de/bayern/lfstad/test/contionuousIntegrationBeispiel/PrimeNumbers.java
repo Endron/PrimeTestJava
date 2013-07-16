@@ -10,9 +10,9 @@ import java.util.List;
 public class PrimeNumbers {
 
     /**
-     * Enthält die bekannten Prim-Faktoren.
+     * Enthält die bekannten Prim-Faktoren. Die Liste wird zur Laufzeit um weitere Prim-Faktoren ergänzt, wenn diese benötigt werden.
      */
-    private List<Integer> primeNumbers = Arrays.asList(2, 3, 5, 7);
+    private List<Integer> primeNumbers = new LinkedList<>(Arrays.asList(2));
 
     /**
      * Führt die Zerlegung des übergebenen {@code values} in seine Prim-Faktoren durch.
@@ -42,9 +42,29 @@ public class PrimeNumbers {
                 }
             }
 
-            throw new RuntimeException("Endlosschleife!");
+            primeNumbers.add(createNextPrimeNumber());
         }
 
         return result;
+    }
+
+    /**
+     * Erzeugt einen neuen Prim-Faktor, der noch nicht in der Liste der Prim-Faktoren ({@link #primeNumbers}) enthalten ist.
+     * 
+     * @return den neuen Prim-Faktor
+     */
+    private int createNextPrimeNumber() {
+        int canidate = primeNumbers.get(primeNumbers.size() - 1).intValue();
+
+        WHILE_LOOP: while(true) {
+            canidate = canidate + 1;
+            for(final Integer primeNumber : primeNumbers) {
+                if(canidate % primeNumber == 0) {
+                    continue WHILE_LOOP;
+                }
+            }
+
+            return canidate;
+        }
     }
 }
