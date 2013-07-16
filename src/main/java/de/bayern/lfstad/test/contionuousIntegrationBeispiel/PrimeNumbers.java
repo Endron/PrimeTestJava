@@ -10,21 +10,21 @@ import java.util.List;
 public class PrimeNumbers {
 
     /**
-     * Enthält die bekannten Prim-Faktoren. Die Liste wird zur Laufzeit um weitere Prim-Faktoren ergänzt, wenn diese benötigt werden.
+     * Enth#lt die bekannten Prim-Faktoren. Die Liste wird zur Laufzeit um weitere Prim-Faktoren ergÃ¤nzt, wenn diese benÃ¶tigt werden.
      */
     private List<Integer> primeNumbers = new LinkedList<>(Arrays.asList(2));
 
     /**
-     * Führt die Zerlegung des übergebenen {@code values} in seine Prim-Faktoren durch.
+     * FÃ¼hrt die Zerlegung des Ã¼bergebenen {@code values} in seine Prim-Faktoren durch.
      * 
      * @param value
      *            der Wert der in seine Prim-Faktoren zerlegt werden soll
      * 
-     * @return die Prim-Faktoren, in die der übergebene Value zerlegt werden kann. Die Prim-Faktoren werden
-     *         aufsteigend nach ihrer Größe geliefert.
+     * @return die Prim-Faktoren, in die der Ã¼bergebene Value zerlegt werden kann. Die Prim-Faktoren werden
+     *         aufsteigend nach ihrer GrÃ¶ÃŸe geliefert.
      * 
      * @throws RuntimeException
-     *             wenn {@code 0} übergeben wird
+     *             wenn {@code 0} Ã¼bergeben wird
      */
     public List<Integer> split(final int value) {
         if(value == 0) {

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.Test;
 
 /**
- * Testcases für die Zerlegung einer Zahl in Prim-Faktoren.
+ * Testcases fÃ¼r die Zerlegung einer Zahl in Prim-Faktoren.
  */
 @SuppressWarnings("javadoc")
 public class PrimeNumbersTest {
@@ -16,6 +16,11 @@ public class PrimeNumbersTest {
      * Unit under test.
      */
     private PrimeNumbers primeNumbers = new PrimeNumbers();
+
+    @Test(expected = RuntimeException.class)
+    public void split0() {
+        primeNumbers.split(0);
+    }
 
     @Test
     public void split1() {
@@ -66,27 +71,27 @@ public class PrimeNumbersTest {
     public void split10() {
         assertEquals(Arrays.asList(2, 5), primeNumbers.split(2 * 5));
     }
-    
+
     @Test
     public void split11() {
         assertEquals(Arrays.asList(11), primeNumbers.split(11));
     }
-    
+
     @Test
     public void split12() {
         assertEquals(Arrays.asList(2, 2, 3), primeNumbers.split(2 * 2 * 3));
     }
-    
+
     @Test
     public void split518() {
         assertEquals(Arrays.asList(2, 7, 37), primeNumbers.split(2 * 7 * 37));
     }
-    
+
     @Test
     public void split99377() {
         assertEquals(Arrays.asList(99377), primeNumbers.split(99377));
     }
-    
+
     @Test
     public void splieNegativ() {
         assertEquals(Arrays.asList(-1, 2, 7, 37), primeNumbers.split(-1 * 2 * 7 * 37));
