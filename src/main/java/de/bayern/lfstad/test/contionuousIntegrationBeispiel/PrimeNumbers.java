@@ -22,15 +22,28 @@ public class PrimeNumbers {
      * 
      * @return die Prim-Faktoren, in die der übergebene Value zerlegt werden kann. Die Prim-Faktoren werden
      *         aufsteigend nach ihrer Größe geliefert.
+     * 
+     * @throws RuntimeException
+     *             wenn {@code 0} übergeben wird
      */
     public List<Integer> split(final int value) {
+        if(value == 0) {
+            throw new RuntimeException("0 kann nicht zerlegt werden.");
+        }
+
         if(value == 1) {
             return Arrays.asList(1);
         }
 
         final List<Integer> result = new LinkedList<>();
 
-        int tempValue = value;
+        int tempValue;
+        if(value > 0) {
+            tempValue = value;
+        } else {
+            result.add(Integer.valueOf(-1));
+            tempValue = -1 * value;
+        }
 
         OUTER_LOOP: while(tempValue != 1) {
             for(final Integer primeNumber : primeNumbers) {
