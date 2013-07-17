@@ -13,14 +13,15 @@ public class UnsynchonizedPrimeNumbers implements PrimeNumbers {
 
     /**
      * <p>
-     * Enthält die bekannten Prim-Faktoren. Die Liste wird zur Laufzeit um weitere Prim-Faktoren ergänzt, wenn diese benötigt werden.
+     * Enthält die bekannten Prim-Faktoren. Die Liste wird zur Laufzeit um weitere Prim-Faktoren ergänzt, wenn diese benötigt werden. Initial sollen
+     * nur die Primzahlen 2 (einzige geradzahlige Primzahl) und 3 bekannt sein.
      * </p>
      * <p>
      * Deque an Stelle von List, weil mit LinkedList.pollLast mit erheblich besserer Performance auf das letzte Element zugegriffen werden kann.
      * Dieser Zugriff ist notwendig, um den nächsten Prim-Faktor zu bestimmen.
      * </p>
      */
-    private Deque<Integer> primeNumbers = new LinkedList<>(Arrays.asList(2));
+    private Deque<Integer> primeNumbers = new LinkedList<>(Arrays.asList(2, 3));
 
     @Override
     public List<Integer> split(final int value) {
@@ -71,7 +72,7 @@ public class UnsynchonizedPrimeNumbers implements PrimeNumbers {
         int canidate = primeNumbers.pollLast().intValue();
 
         do {
-            canidate = canidate + 1;
+            canidate = canidate + 2; // Alle Primzahlen außer 2 sind ungerade
             if(isNextPrime(canidate)) {
                 return canidate;
             }
