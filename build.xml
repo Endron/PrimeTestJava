@@ -49,11 +49,13 @@
 		<junit showoutput="true" fork="true" failureproperty="test.failed">
 			<formatter type="xml" />
 			<batchtest todir="${outputDir.testResults}">
-				<fileset dir="${outputDir.test-classes}" />
+				<fileset dir="${outputDir.test-classes}">
+					<include name="**/*Test.class"/>
+				</fileset>
 			</batchtest>
 			<classpath refid="test.exec.path" />
 		</junit>
-		<fail if="test.failed" />
+		<fail if="test.failed" message="Test failed."/>
 	</target>
 
 	<target name="package" depends="test">
