@@ -99,8 +99,8 @@ public abstract class PrimeNumbersTestBase {
         assertEquals(Arrays.asList(99377), primeNumbers.split(99377));
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void splieNegativ() {
-        assertEquals(Arrays.asList(-1, 2, 7, 37), primeNumbers.split(-1 * 2 * 7 * 37));
+        primeNumbers.split(-1 * 2 * 7 * 37);
     }
 }

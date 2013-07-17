@@ -25,8 +25,8 @@ public class UnsynchonizedPrimeNumbers implements PrimeNumbers {
 
     @Override
     public List<Integer> split(final int value) {
-        if(value == 0) {
-            throw new RuntimeException("0 kann nicht zerlegt werden.");
+        if(value <= 0) {
+            throw new RuntimeException("Werte <= 0 können nicht zerlegt werden.");
         }
 
         if(value == 1) {
@@ -35,13 +35,7 @@ public class UnsynchonizedPrimeNumbers implements PrimeNumbers {
 
         final List<Integer> result = new LinkedList<>();
 
-        int tempValue;
-        if(value >= 0) {
-            tempValue = value;
-        } else {
-            result.add(Integer.valueOf(-1));
-            tempValue = -1 * value;
-        }
+        int tempValue = value;
 
         OUTER_LOOP: while(tempValue != 1) {
             for(final Integer primeNumber : primeNumbers) {

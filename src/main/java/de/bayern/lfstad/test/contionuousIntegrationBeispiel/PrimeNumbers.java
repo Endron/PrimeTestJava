@@ -8,12 +8,7 @@ import java.util.List;
 public interface PrimeNumbers {
 
     /**
-     * <p>
-     * Führt die Zerlegung des übergebenen {@code values} in seine Prim-Faktoren durch.
-     * </p>
-     * <p>
-     * Wird eine negativer {@code value} übergeben, so wird als erster Faktor {@code -1} geliefert. Die weiteren Faktoren ergeben sich aus der
-     * Zerlegung des Betrags des {@code value}s.
+     * Führt die Zerlegung des übergebenen {@code values} in seine Prim-Faktoren durch. Die Zerlegung kann nur für positive Werte durchgeführt werden.
      * 
      * @param value
      *            der Wert der in seine Prim-Faktoren zerlegt werden soll
@@ -22,7 +17,7 @@ public interface PrimeNumbers {
      *         aufsteigend nach ihrer Größe geliefert.
      * 
      * @throws RuntimeException
-     *             wenn {@code 0} übergeben wird
+     *             wenn {@code value <= 0} übergeben wird
      */
     List<Integer> split(int value);
 }
