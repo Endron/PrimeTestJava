@@ -12,6 +12,8 @@
 	<property name="outputDir.classes" value="${outputDir}/classes" />
 	<property name="outputDir.test-classes" value="${outputDir}/test-classes" />
 	<property name="outputDir.testResults" value="${outputDir}/test-result" />
+	
+	<path id="main.compile.path" />
 
 	<path id="test.compile.path">
 		<fileset dir="${inputDir.lib.test}">
@@ -31,14 +33,17 @@
 
 	<target name="compile" depends="clean">
 		<mkdir dir="${outputDir.classes}" />
-		<javac srcdir="${inputDir.src}" destdir="${outputDir.classes}" encoding="${project.encoding}" source="${project.java.source}" target="${project.java.source}" debug="on" includeantruntime="false">
+		<javac srcdir="${inputDir.src}" destdir="${outputDir.classes}" classpathref="main.compile.path" 
+					encoding="${project.encoding}" source="${project.java.source}" target="${project.java.source}"
+					debug="on" includeantruntime="false">
 			<include name="**/*.java" />
 		</javac>
 	</target>
 
 	<target name="compile-test" depends="compile">
 		<mkdir dir="${outputDir.test-classes}" />
-		<javac srcdir="${inputDir.test}" destdir="${outputDir.test-classes}" classpathref="test.compile.path" encoding="${project.encoding}" source="${project.java.source}" target="${project.java.source}" 
+		<javac srcdir="${inputDir.test}" destdir="${outputDir.test-classes}" classpathref="test.compile.path" 
+				encoding="${project.encoding}" source="${project.java.source}" target="${project.java.source}" 
 				debug="on" includeantruntime="false">
 			<include name="**/*.java" />
 		</javac>
