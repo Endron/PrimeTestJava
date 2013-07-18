@@ -2,7 +2,6 @@ buildDir = './target'
 
 set("sourceCompatibility", "1.7")
 set("targetCompatibility", "1.7")
-set("version", "0.0.1")
 
 apply plugin: 'java'
 
