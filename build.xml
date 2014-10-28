@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="ContinuousIntegrationBeispiel" default="package">
-	<property name="project.java.source" value="1.7" />
+	<property name="project.java.source" value="1.8" />
 	<property name="project.encoding" value="UTF-8" />
 
 	<property name="inputDir.src" value="${basedir}/src/main/java" />
