@@ -5,8 +5,8 @@ package de.bayern.lfstad.test.contionuousIntegrationBeispiel;
  */
 public class UnsynchonizedPrimeNumbersTest extends PrimeNumbersTestBase {
 
-    @Override
-    public PrimeNumbers getUnitUnderTest() {
-        return new UnsynchonizedPrimeNumbers();
-    }
+	@Override
+	public PrimeNumbers getUnitUnderTest() {
+		return new UnsynchonizedPrimeNumbers();
+	}
 }

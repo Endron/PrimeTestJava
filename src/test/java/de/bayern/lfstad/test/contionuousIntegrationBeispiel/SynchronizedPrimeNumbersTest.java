@@ -5,8 +5,8 @@ package de.bayern.lfstad.test.contionuousIntegrationBeispiel;
  */
 public class SynchronizedPrimeNumbersTest extends PrimeNumbersTestBase {
 
-    @Override
-    public PrimeNumbers getUnitUnderTest() {
-        return new SynchronizedPrimeNumbers();
-    }
+	@Override
+	public PrimeNumbers getUnitUnderTest() {
+		return new SynchronizedPrimeNumbers();
+	}
 }
