@@ -1,14 +1,8 @@
-buildDir = './target'
+plugins { id 'java' }
 
-set("sourceCompatibility", "1.7")
-set("targetCompatibility", "1.7")
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
 
-apply plugin: 'java'
+repositories { maven { url "http://nexus.bybn.de/content/groups/public" } }
 
-repositories {
-    maven { url "http://nexus.bybn.de/content/groups/public" }
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-}
+dependencies { testCompile 'junit:junit:4.11' }
