@@ -1,4 +1,7 @@
-package de.bayern.lfstad.test.contionuousIntegrationBeispiel;
+package io.github.endron.contionuousIntegrationBeispiel;
+
+import io.github.endron.contionuousIntegrationBeispiel.PrimeNumbers;
+import io.github.endron.contionuousIntegrationBeispiel.UnsynchonizedPrimeNumbers;
 
 /**
  * Testet die Implementierung von {@link UnsynchonizedPrimeNumbers}.

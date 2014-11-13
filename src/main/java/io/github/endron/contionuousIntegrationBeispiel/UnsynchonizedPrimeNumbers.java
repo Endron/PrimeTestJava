@@ -1,4 +1,4 @@
-package de.bayern.lfstad.test.contionuousIntegrationBeispiel;
+package io.github.endron.contionuousIntegrationBeispiel;
 
 import static java.util.Arrays.asList;
 

@@ -1,4 +1,4 @@
-package de.bayern.lfstad.test.contionuousIntegrationBeispiel;
+package io.github.endron.contionuousIntegrationBeispiel;
 
 import java.util.List;
 
